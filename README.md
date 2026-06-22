@@ -70,7 +70,7 @@ Open your terminal and clone this repository (or fetch the latest updates if you
 
 ```bash
 git clone https://github.com/nikhilthapaa/chatbot_pdf_question_answering.git
-cd YOUR_REPO_NAME
+cd chatbot_pdf_question_answering
 
 ```
 
