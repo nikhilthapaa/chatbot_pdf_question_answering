@@ -69,7 +69,7 @@ Follow these sequential steps to pull down and run this repository locally:
 Open your terminal and clone this repository (or fetch the latest updates if you have already cloned it):
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
+git clone https://github.com/nikhilthapaa/chatbot_pdf_question_answering.git
 cd YOUR_REPO_NAME
 
 ```
