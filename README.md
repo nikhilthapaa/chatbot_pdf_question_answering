@@ -1,6 +1,3 @@
-Here is a professional, detailed, and comprehensive `README.md` tailored specifically for your project. You can copy and paste this directly into your GitHub repository.
-
-```markdown
 # 🛡️ Secure Guardrailed Multi-LLM Chat Terminal
 
 A production-ready, highly secure Streamlit chat interface featuring a **Dual-Layer Guardrail Architecture**. This application allows users to chat seamlessly with various commercial and local AI models (Gemini, OpenAI GPT, and Ollama/Mistral) while ensuring strict personal data protection (PII) and deterministic content filtering. It includes a multi-source RAG pipeline that handles simultaneous indexing and cross-comparison of multiple PDF documents.
