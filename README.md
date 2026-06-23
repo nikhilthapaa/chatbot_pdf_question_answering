@@ -1,138 +1,156 @@
-# 🛡️ Guardrailed Multi-Chat PDF QA Terminal
+Here is a professional, detailed, and comprehensive `README.md` tailored specifically for your project. You can copy and paste this directly into your GitHub repository.
 
-A secure, enterprise-grade conversational AI assistant built with **Streamlit** and **Google Gemini 2.5**. This application functions as a standard, polite chatbot for general chit-chat while seamlessly transitioning into a deep Document Intelligence tool when a PDF is provided.
+```markdown
+# 🛡️ Secure Guardrailed Multi-LLM Chat Terminal
 
-What sets this project apart is its **Dual-Layer Hardwired Safety System**, which strictly monitors, blocks, and safely de-escalates harmful, unsafe, or sensitive user inputs.
+A production-ready, highly secure Streamlit chat interface featuring a **Dual-Layer Guardrail Architecture**. This application allows users to chat seamlessly with various commercial and local AI models (Gemini, OpenAI GPT, and Ollama/Mistral) while ensuring strict personal data protection (PII) and deterministic content filtering. It includes a multi-source RAG pipeline that handles simultaneous indexing and cross-comparison of multiple PDF documents.
 
 ---
 
 ## 📖 Table of Contents
-
-1. What is this?
-2. Key Features
-3. Safety Guardrails Architecture
-4. Prerequisites
-5. Local Installation & Setup Guide
-6. How to Use
----
-
-## 🧐 What is this?
-
-This repository contains a full-stack, single-file Python web application that allows users to create separate conversational streams (similar to ChatGPT or Gemini) and query large PDF texts securely.
-
-The chatbot acts as a friendly, calm assistant that handles normal greetings gracefully, answers general logic questions, and respects absolute safety boundaries regarding explicit content, self-harm, or extreme violence.
+1. [What is this?](#-what-is-this)
+2. [Key Features](#-key-features)
+3. [Prerequisites & Requirements](#-prerequisites--requirements)
+4. [Local Installation & Setup](#-local-installation--setup)
+5. [How to Use the Workspace](#-how-to-use-the-workspace)
+6. [Security Architecture Detailing](#-security-architecture-detailing)
 
 ---
 
-## ⚡ Key Features
+## 💡 What is this?
+This project is an advanced, enterprise-grade AI chatbot platform built on top of **Streamlit**. It solves a common flaw found in local open-source models (like `mistral` or `llama3` via Ollama): their tendency to bypass system prompt guidelines under complex context injection. 
 
-* **Multi-Chat Session Manager:** Dynamically spin up, title, navigate, or permanently delete independent chat sessions without losing track of other active topics.
-* **Context Isolation:** Documents uploaded in one chat tab remain securely isolated to that specific thread, preventing cross-contamination of sensitive data.
-* **Dynamic Engine Routing:** A sidebar option lets the user switch on the fly between Google's active foundational models:
-* `Gemini 2.5 Flash` (Optimized for lightning-fast speeds)
-* `Gemini 2.5 Pro` (Optimized for complex document extraction and analytical reasoning)
-
-
-* **Automatic Chat Renaming:** The interface automatically extracts context from your first message to dynamically replace generic tab titles with contextually relevant titles.
-* **De-escalation UI Engine:** If pushed with hostile inputs or policy violations, the chatbot uses a compassionate, unyielding rejection layout instead of generic application crashes.
+By employing a hybrid security approach—combining strict system instructions with an automated post-generation regex scrubber—this terminal guarantees that sensitive data patterns (e.g., emails, phone numbers, SSNs) are permanently redacted before ever being rendered in the UI view layers.
 
 ---
 
-## 🛡️ Safety Guardrails Architecture
+## ✨ Key Features
 
-The chatbot relies on an absolute, multi-tiered security perimeter:
+### 1. 🛡️ Dual-Layer Security & Guardrails
+* **Input Filter Interceptor:** Drops toxic patterns, violent topics, or self-harm triggers locally before calling any API.
+* **Deterministic Output Scrubber:** A post-execution regex layer that intercepts model outputs to securely redact phone numbers, private emails, and national identity numbers.
 
-| Security Layer | Mechanism | Target Threats |
-| --- | --- | --- |
-| **Layer 1: Local Pre-filter Interceptor** | Regex and text pattern matching executed completely in local runtime *before* calling cloud APIs. | Suicidal ideation, self-harm keywords, explicit sexual terms, acts of violence. |
-| **Layer 2: Google Safety Directives** | Built-in Gemini backend filtering thresholds set strictly to `BLOCK_LOW_AND_ABOVE`. | Harassment, Hate Speech, Dangerous Content, Explicit Adult Material. |
-| **Layer 3: System Instruction Anchors** | System-level prompt injections overrides model behaviors. | Prevents leakage of PII (Addresses, Passwords, SSNs) found inside documents; strictly enforces an ultra-calm, professional tone. |
+### 2. 🗂️ Universal Multi-Source RAG Pipeline
+* **Simultaneous File Multi-Tenancy:** Context fractions from *every* uploaded document are shared in prompt slots dynamically, preventing any file from being dropped from model visibility.
+* **Smart Overlap Chunking:** Utilizes a custom PyPDF2 parser with semantic lookback sliding windows to keep reference fragments highly coherent.
+
+### 3. 🤖 Premium Agnostic Model Routing
+* **Commercial Models:** Native hooks into Google Gemini (`gemini-2.5-flash`, `gemini-2.5-pro`) and OpenAI GPT (`gpt-4o-mini`, `gpt-4o`).
+* **Local Privacy Engines:** Seamless local execution configurations via Ollama (`mistral`, `llama3`).
+
+### 4. 💎 Deluxe UX Control Deck
+* **Chat History Vault:** Full multi-session management allowing users to create, switch, share, or hard-delete individual conversations.
+* **Inline Stream Editing:** Users can step back to edit past inputs or trigger localized model regenerations ("Redo") instantly.
+* **Micro-scaled Copy Utility:** Custom sandboxed HTML/JS click-to-copy functionality attached beautifully to every assistant message box.
 
 ---
 
-## 🛠️ Prerequisites
+## 🛠️ Prerequisites & Requirements
 
-Before launching the app, ensure you have the following installed on your local computer:
-
-* **Python 3.10 to Python 3.14**
-* A valid **Google Gemini API Key** (Get one for free at [Google AI Studio](https://www.google.com/search?q=https://aistudio.google.com/))
-* *(Optional)* An OpenAI API Key if you intend to unlock the secondary GPT dropdown options.
+Before running the application, ensure you have the following installed on your machine:
+* **Python 3.9, 3.10, or 3.11**
+* **Git**
+* **Ollama Desktop** *(Optional: Only required if running local offline models like Mistral/Llama3)*
 
 ---
 
-## 💻 Local Installation & Setup Guide
+## 🚀 Local Installation & Setup
 
-Follow these sequential steps to pull down and run this repository locally:
+Follow these step-by-step instructions to get the application running on your computer:
 
-### 1. Clone or Pull the Code
-
-Open your terminal and clone this repository (or fetch the latest updates if you have already cloned it):
-
+### 1. Clone the Repository
+Open your terminal or command prompt and clone the project:
 ```bash
-git clone https://github.com/nikhilthapaa/chatbot_pdf_question_answering.git
-cd chatbot_pdf_question_answering
+git clone [https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git](https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git)
+cd YOUR_REPOSITORY_NAME
 
 ```
 
 ### 2. Establish a Virtual Environment
 
-It is highly recommended to use an isolated environment to prevent version conflicts with your globally installed packages:
+It is highly recommended to isolate your dependencies using a virtual environment:
 
 ```bash
-# Create the environment
-python3 -m venv .venv
+# Windows
+python -m venv venv
+venv\Scripts\activate
 
-# Activate the environment (Linux / macOS)
-source .venv/bin/activate
-
-# Activate the environment (Windows PowerShell)
-# .venv\Scripts\Activate.ps1
+# macOS / Linux
+python3 -m venv venv
+source venv/bin/activate
 
 ```
 
 ### 3. Install Required Dependencies
 
-Install the explicit Python packages required by the core processing framework:
+Install all necessary Python packages via `pip`:
 
 ```bash
-pip install streamlit google-generativeai pypdf2 python-dotenv
+pip install streamlit google-generativeai openai pypdf2 python-dotenv ollama
 
 ```
 
-### 4. Configure Your Local Keys (`.env`)
+### 4. Configure Environment Variables
 
-Create an environment configurations file named `.env` in the absolute **root directory** of your project:
-
-```bash
-touch .env
-
-```
-
-Open the `.env` file in your preferred text editor and add your secure variables:
+Create a file named `.env` in the root directory of the project and insert your API keys:
 
 ```env
-GOOGLE_API_KEY="AIzaSyYourActualGeminiAPIKeyGoesHere"
-OPENAI_API_KEY="sk-proj-OptionalOpenAIKey"
+GOOGLE_API_KEY=your_gemini_api_key_here
+OPENAI_API_KEY=your_openai_api_key_here
 
 ```
 
-> **⚠️ Security Warning:** Never commit your `.env` file to a public GitHub repository. Ensure `.env` is listed inside your `.gitignore` file.
+> ⚠️ **Note:** If you don't possess an OpenAI API key, the system will gracefully disable GPT options while keeping Gemini and Local Ollama routes fully interactive.
 
-### 5. Launch the Web Application
+### 5. Start Local Models (Optional)
 
-Start your Streamlit development server locally:
+If you wish to use local models like Mistral:
+
+1. Ensure the Ollama background service application is running.
+2. Pull the model through your terminal command line interface:
+```bash
+ollama pull mistral
+
+```
+
+
+
+### 6. Launch the Streamlit Terminal
+
+Boot up the interface engine directly:
 
 ```bash
-streamlit run guardials_testing.py
+streamlit run app.py
 
 ```
 
-The app will compile instantly and provide your local access links (usually `http://localhost:8501`).
+Your default web browser should open a new tab automatically targeting `http://localhost:8501`.
 
 ---
 
-## 🚀 How to Use
+## 📖 How to Use the Workspace
 
-1. **Standard Chat:** Type `"Hello!"` or `"Can you help me brainstorm a recipe?"` directly into the chat bar. The system will handle standard queries exactly like a default assistant.
-2. **Analyze Documents:** Head to the sidebar control deck, create or pick a chat session, and drop a PDF file into the file uploader. Ask questions directly relating to your text.
-3. **Test the Defenses:** Try asking something unsafe or trying to extract a fake credit card number contained inside your PDF. Watch the engine gracefully flag and securely divert the request using polite language.
+1. **Select Your Model:** Use the dropdown selector in the sidebar to declare your active AI brain configuration.
+2. **Upload Documents:** Drop any collection of text PDFs into the **Document Center** tab. The system will slice them into vector chunks and verify the unified index payload instantly.
+3. **Engage and Chat:** Ask questions regarding your files. If you notice a mistake in an earlier query, hover over your prompt card and press **✏️ Edit** to fix the chat lineage downstream.
+4. **Manage Sessions:** Use the **➕ Create New Chat** action button to start distinct modular topics without muddying current variable stores.
+
+---
+
+## 🔒 Security Architecture Detailing
+
+```
+User Input ──> [Local Input Guardrails] ──> [Context / Multi-RAG Injection]
+                                                        │
+[UI Display Layer] <── [Regex PII Scrubber] <── [LLM Engine Processing]
+
+```
+
+Standard systems depend entirely on system instructions to enforce safety behavior. This terminal applies a **fail-safe loop** strategy:
+
+1. **Prompt Containment:** The RAG text index blocks are wrapped inside strict system isolation rules.
+2. **Deterministic Redaction:** If a model like `mistral` forgets its constraints and inadvertently surfaces a phone number or an email string pattern from the parsed files, the `clean_output_pii_scrubber` function catches it instantly and swaps it with safe string tokens (`[REDACTED]`) before it can draw on screen.
+
+```
+
+```
